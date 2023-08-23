@@ -5,9 +5,12 @@
  *  4.0 International License.
  *****************************************************************************/
 
+#include "context.h"
+
 #include <string.h>  // explicit_bzero
 
-#include "context.h"
+#include "os.h"  // PRINTF
+
 #include "globals.h"
 
 void reset_app_context() {

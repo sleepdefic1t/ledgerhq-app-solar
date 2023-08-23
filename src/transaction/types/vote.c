@@ -6,9 +6,15 @@
  *****************************************************************************/
 
 #include "vote.h"
+
+#include <stdint.h>  // uint*_t
+
+#include "buffer.h"
+
 #include "constants.h"
-#include "../utils.h"
-#include "../../common/buffer.h"
+
+#include "transaction/errors.h"
+#include "transaction/transaction_utils.h"
 
 parser_status_e vote_type_deserialise(buffer_t *buf, vote_transaction_asset_t *tx) {
     // length
@@ -16,7 +22,7 @@ parser_status_e vote_type_deserialise(buffer_t *buf, vote_transaction_asset_t *t
         return WRONG_LENGTH_ERROR;
     }
 
-    if (tx->vote_length < MIN_NUM_VOTES || tx->vote_length > MAX_NUM_VOTES) {
+    if (tx->vote_length > MAX_NUM_VOTES) {
         return CORE_ASSET_PARSING_ERROR;
     }
 

@@ -5,19 +5,25 @@
  *  4.0 International License.
  *****************************************************************************/
 
-#include <stdio.h>
-#include "burn_display.h"
-#include "types.h"
+#include "ui/transactions/burn_display.h"
+
+#include <stdio.h>   // snprintf
+#include <stdint.h>  // uint*_t
+
+#include "base58.h"
+#include "buffer.h"
+
 #include "constants.h"
-#include "../../common/buffer.h"
-#include "../../common/format.h"
-#include "../../common/base58.h"
+
+#include "transaction/transaction_utils.h"
+#include "transaction/types.h"
+#include "ui/ctx.h"
 
 bool burn_type_display(transaction_t *tx, char title[], char text[], uint16_t step) {
     switch (step) {
         case 0: {
             // Amount
-            snprintf(title, MAX_TITLE_LEN, "%s", "Amount");
+            snprintf(title, MAX_TITLE_LEN, "Amount");
             format_amount(text,
                           MAX_TEXT_LEN,
                           tx->core_asset.Burn.amount,
@@ -28,7 +34,7 @@ bool burn_type_display(transaction_t *tx, char title[], char text[], uint16_t st
         }
         case 1: {
             // Fee
-            snprintf(title, MAX_TITLE_LEN, "%s", "Fee");
+            snprintf(title, MAX_TITLE_LEN, "Fee");
             format_amount(text,
                           MAX_TEXT_LEN,
                           tx->fee,
