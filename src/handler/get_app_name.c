@@ -36,7 +36,7 @@
 
 #include "constants.h"
 #include "sw.h"
-#include "types.h"
+#include "app_types.h"
 
 int handler_get_app_name() {
     _Static_assert(APPNAME_LEN < APPNAME_MAX_LEN, "APPNAME must be at most 64 characters!");

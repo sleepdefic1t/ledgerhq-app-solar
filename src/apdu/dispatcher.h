@@ -2,7 +2,7 @@
 
 #include "parser.h"
 
-#include "types.h"
+#include "app_types.h"
 
 /**
  * Parameter 2 for last APDU to receive.

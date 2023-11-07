@@ -42,7 +42,7 @@
 
 #include "context.h"
 #include "globals.h"
-#include "types.h"
+#include "app_types.h"
 #include "sw.h"
 
 #include "crypto/crypto.h"

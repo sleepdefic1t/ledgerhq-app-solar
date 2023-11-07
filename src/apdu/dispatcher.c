@@ -38,7 +38,7 @@
 
 #include "constants.h"
 #include "sw.h"
-#include "types.h"
+#include "app_types.h"
 
 #include "handler/get_version.h"
 #include "handler/get_app_name.h"

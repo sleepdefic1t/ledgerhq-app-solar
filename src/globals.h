@@ -6,7 +6,7 @@
 #include "ux.h"
 
 #include "constants.h"
-#include "types.h"
+#include "app_types.h"
 
 /**
  * Global buffer for interactions between SE and MCU.

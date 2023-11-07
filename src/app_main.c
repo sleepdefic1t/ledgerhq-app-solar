@@ -25,7 +25,7 @@
 #include "context.h"
 #include "globals.h"
 #include "sw.h"
-#include "types.h"
+#include "app_types.h"
 
 #include "apdu/dispatcher.h"
 
