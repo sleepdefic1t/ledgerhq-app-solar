@@ -17,7 +17,7 @@
 #include "read.h"
 
 #include "constants.h"
-#include "types.h"
+#include "app_types.h"
 
 #include "transaction/transaction_utils.h"
 #include "transaction/types/vote.h"
