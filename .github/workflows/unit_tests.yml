@@ -14,17 +14,23 @@ jobs:
   job_unit_test:
     name: Unit test
     runs-on: ubuntu-latest
-
     container:
-      image: ghcr.io/ledgerhq/ledger-app-builder/ledger-app-builder:latest
+      image: ghcr.io/ledgerhq/ledger-app-builder/ledger-app-builder-lite:latest
 
     steps:
       - name: Clone
         uses: actions/checkout@v3
 
+      - name: Clone SDK
+        uses: actions/checkout@v3
+        with:
+          repository: ledgerHQ/ledger-secure-sdk
+          path: sdk
+
       - name: Build unit tests
         run: |
           cd tests/unit-tests/
+          export BOLOS_SDK=../sdk
           cmake -Bbuild -H. && make -C build && make -C build test
 
       - name: Generate code coverage
@@ -45,7 +51,7 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./tests/unit-tests/coverage.info
+          files: ./tests/unit-tests/coverage.info
           flags: unittests
           name: codecov-app-solar
           fail_ci_if_error: true
