@@ -27,6 +27,11 @@ jobs:
           repository: ledgerHQ/ledger-secure-sdk
           path: sdk
 
+      - name: list paths
+        run: |
+          cd tests/unit-tests/
+          ls ../../sdk
+
       - name: Build unit tests
         run: |
           cd tests/unit-tests/
