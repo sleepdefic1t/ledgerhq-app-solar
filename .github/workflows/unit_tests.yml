@@ -42,7 +42,7 @@ jobs:
           path: tests/unit-tests/coverage
 
       - name: Upload to codecov.io
-        uses: codecov/codecov-action@v4.4.0
+        uses: codecov/codecov-action@v3.1.6
         with:
           fail_ci_if_error: true
           files: ./tests/unit-tests/coverage.info
