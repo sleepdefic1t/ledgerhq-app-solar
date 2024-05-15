@@ -35,7 +35,7 @@
 #include <stdbool.h>  // bool
 #include <string.h>   // strlen
 
-#include <bolos_target.h>
+#include "bolos_target.h"
 
 #if defined(TARGET_NANOS)  // Estimate amount/fee line pixel count for the Nano S.
 
