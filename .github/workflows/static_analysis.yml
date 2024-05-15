@@ -14,7 +14,7 @@ on:
 jobs:
   build_application:
     name: Build application using the reusable workflow
-    uses: LedgerHQ/ledger-app-workflows/.github/workflows/reusable_build.yml@v1
+    uses: LedgerHQ/ledger-app-workflows/.github/workflows/reusable_build.yml@v1.40.0
     with:
       upload_app_binaries_artifact: "compiled_app_binaries"
       run_for_devices: '["nanos"]'
@@ -25,16 +25,16 @@ jobs:
     needs: build_application
 
     container:
-      image: ghcr.io/ledgerhq/ledger-app-builder/ledger-app-builder:latest
+      image: ghcr.io/ledgerhq/ledger-app-builder/ledger-app-builder:v3.22.1
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.1.5
 
       - name: Build with Clang Static Analyser
         run: |
           make clean
           scan-build --use-cc=clang -analyze-headers -enable-checker security -enable-checker unix -enable-checker valist -o scan-build --status-bugs make default
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4.3.3
         if: failure()
         with:
           name: scan-build
