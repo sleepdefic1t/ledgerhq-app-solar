@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - develop
   pull_request:
     branches:
       - main
@@ -16,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Parse short sha
-        uses: benjlevesque/short-sha@v2.2
+        uses: benjlevesque/short-sha@v3
         id: short-sha
         with:
           length: 7
@@ -33,14 +34,14 @@ jobs:
 
     steps:
       - name: Clone
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build
         run: |
           make
 
       - name: Upload app binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app-solar-nanos-${{ needs.prepare.outputs.sha7 }}
           path: bin
@@ -55,14 +56,14 @@ jobs:
 
     steps:
       - name: Clone
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build
         run: |
           make BOLOS_SDK=$NANOSP_SDK
 
       - name: Upload app binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app-solar-nanosp-${{ needs.prepare.outputs.sha7 }}
           path: bin
@@ -77,14 +78,14 @@ jobs:
 
     steps:
       - name: Clone
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build
         run: |
           make BOLOS_SDK=$NANOX_SDK
 
       - name: Upload app binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app-solar-nanox-${{ needs.prepare.outputs.sha7 }}
           path: bin

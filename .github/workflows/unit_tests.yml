@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - develop
   pull_request:
     branches:
       - main
@@ -19,11 +20,7 @@ jobs:
 
     steps:
       - name: Clone
-        uses: actions/checkout@v3
-
-      - name: list paths
-        run: |
-          ls /usr/lib/perl5/vendor_perl/auto/JSON/XS
+        uses: actions/checkout@v4
 
       - name: Build unit tests
         run: |
@@ -39,13 +36,13 @@ jobs:
           lcov --directory . -b "$(realpath build/)" --remove coverage.info '*/unit-tests/*' -o coverage.info && \
           genhtml coverage.info -o coverage
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: code-coverage
           path: tests/unit-tests/coverage
 
       - name: Upload to codecov.io
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./tests/unit-tests/coverage.info
