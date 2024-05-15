@@ -25,7 +25,7 @@ jobs:
         language: [ 'cpp' ]
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/ledgerhq/ledger-app-builder/ledger-app-builder-legacy:v3.22.1
+      image: ghcr.io/ledgerhq/ledger-app-builder/ledger-app-builder-legacy:3.22.1
 
     steps:
       - name: Clone
