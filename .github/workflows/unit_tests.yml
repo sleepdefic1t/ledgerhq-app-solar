@@ -21,21 +21,14 @@ jobs:
       - name: Clone
         uses: actions/checkout@v3
 
-      - name: Clone SDK
-        uses: actions/checkout@v3
-        with:
-          repository: ledgerHQ/ledger-secure-sdk
-          path: sdk
+      - name: list paths
+        run: |
+          ls /usr/lib/perl5/vendor_perl/auto/JSON/XS
 
       - name: Build unit tests
         run: |
           cd tests/unit-tests/
-          export BOLOS_SDK=../../sdk
           cmake -Bbuild -H. && make -C build && make -C build test
-
-      - name: list paths
-        run: |
-          ls /usr/lib/perl5/vendor_perl/auto/JSON/XS
 
       - name: Generate code coverage
         run: |
