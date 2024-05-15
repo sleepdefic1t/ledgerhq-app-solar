@@ -48,7 +48,5 @@ jobs:
           files: ./tests/unit-tests/coverage.info
           flags: unittests
           name: codecov-app-solar
+          token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
