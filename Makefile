@@ -24,7 +24,8 @@ include $(BOLOS_SDK)/Makefile.defines
 ########################################
 #        Mandatory configuration       #
 ########################################
-APP_LOAD_PARAMS += --tlvraw 9F:01
+
+ENABLE_PENDING_REVIEW_SCREEN = 1
 
 # Application name
 APPNAME = "Solar"
