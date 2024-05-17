@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __LEDGER_APP_SOLAR_APDU_OFFSETS_H__
+#define __LEDGER_APP_SOLAR_APDU_OFFSETS_H__
 
 /**
  * Offset of instruction class.
@@ -24,3 +25,5 @@
  * Offset of command data.
  */
 #define OFFSET_CDATA 5
+
+#endif
