@@ -1,5 +1,4 @@
-#ifndef __LEDGER_APP_SOLAR_TRANSACTION_ERRORS_H__
-#define __LEDGER_APP_SOLAR_TRANSACTION_ERRORS_H__
+#pragma once
 
 typedef enum {
     PARSING_OK = 1,
@@ -15,5 +14,3 @@ typedef enum {
     WRONG_LENGTH_ERROR = -10,
     MESSAGE_ENCODING_ERROR = -11
 } parser_status_e;
-
-#endif
